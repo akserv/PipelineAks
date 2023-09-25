@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: akservpipelineaks 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akservpipelineaks
+  template:
+    metadata:
+      labels:
+        app: akservpipelineaks 
+    spec:
+      containers:
+        - name: akservpipelineaks 
+          image: mycontaineraksregistry.azurecr.io/akservpipelineaks
+          ports:
+          - containerPort: 8080
